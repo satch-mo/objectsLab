@@ -237,7 +237,7 @@ class Wizard {
 let wiz1 = new Wizard(`Hagrid`, 69, `prestochange-o`);
 // console.log(wiz1);
 
-wiz1.castSpell();
+// wiz1.castSpell();
 //////////////////////////// PROBLEM 14 ////////////////////////////
 /*
     Write a class called Phone. We'll use it as if we were creating
@@ -368,6 +368,8 @@ const shippingInfo = {
 //do not edit the objects above
 
 //Code Here
+const helensInfo = { ...contactInfo, ...shippingInfo };
+// console.log(helensInfo);
 
 //Print helensInfo to see what it looks like, there should be no repeating properties.
 
@@ -384,12 +386,27 @@ const shippingInfo = {
 */
 
 //Code Here
+class Vehicle {
+  constructor(capacity, color, mileage) {
+    this.capacity = capacity;
+    this.color = color;
+    this.mileage = mileage;
+  }
+  move(miles) {
+    return miles + this.mileage;
+  }
+}
+
+let myCar = new Vehicle(4, "gold", 200000);
+// console.log(myCar.move(15));
 
 /*
   Create a vehicle using your new class and save it to a variable called myFirstVehicle
 */
 
 //Code Here
+myFirstVehicle = new Vehicle(4, "green", 160000);
+// console.log(myFirstVehicle);
 
 /* 
   Now we'll create a class that's based off of the vehicle class. 
@@ -400,17 +417,26 @@ const shippingInfo = {
 */
 
 //Code Here
+class Motorcycle extends Vehicle {
+  constructor(capacity, color, mileage, make, isCool) {
+    super(capacity, color, mileage);
+    this.make = make;
+    this.isCool = isCool;
+  }
+}
 
 /*
   Create a Motorcycle using your new class and save it to a variable called myFirstMotorcycle
 */
 
 //Code Here
+let MyFirstMotorcycle = new Motorcycle(2, "red", 10000, "Shadow", true);
+// console.log(MyFirstMotorcycle);
 
 /*
   Call the move function on myFirstMotorcycle (don't forget the parameter)
 */
-
+// console.log(MyFirstMotorcycle.move(250));
 /*
   Let's make another class based off of Vehicle. 
 
@@ -428,6 +454,26 @@ const shippingInfo = {
 */
 
 //Code Here
+class Boat extends Vehicle {
+  constructor(capacity, color, mileage, make, isCool, name, type, isSeaworthy) {
+    super(capacity, color, mileage, make, isCool);
+    this.name = name;
+    this.type = type;
+    this.isSeaworthy = isSeaworthy;
+  }
+  checkSeaworthiness() {
+    if (this.isSeaworthy) {
+      return console.log(
+        `The ${color} ${this.type} ${this.name} is seaworthy!`
+      );
+    } else {
+      return console.log(`You need to get your ${this.type} in shape!`);
+    }
+  }
+  performMaintenance() {
+    return (this.isSeaworthy = true);
+  }
+}
 
 /*
   Create a new boat using your class. You can choose whatever values you like for all the 
@@ -435,21 +481,37 @@ const shippingInfo = {
 */
 
 //Code Here
-
+let myFirstBoat = new Boat(
+  15,
+  `blue`,
+  1500,
+  `Tigi`,
+  true,
+  "seabiscuit",
+  "speedboat",
+  false
+);
+// console.log(myFirstBoat);
 /*
   Call the checkSeaworthiness method on your new boat
 */
 
 //Code Here
+// myFirstBoat.checkSeaworthiness();
 
 /*
   Now run the performMaintenance method on your boat
 */
 
 //Code Here
+myFirstBoat.performMaintenance();
+// console.log(myFirstBoat);
 
 /*
   Check the seaworthiness once more (you should be ready for the water!)
 */
 
 //Code Here
+myFirstBoat.checkSeaworthiness();
+
+// CHECK CHECK CHECK BOYSSS
